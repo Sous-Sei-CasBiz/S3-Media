@@ -56,7 +56,8 @@ class WP_S3_Media_Offloader {
         foreach ( $attachments as $attachment ) {
             $result = $this->offload_attachment( $attachment->ID );
             if ( is_wp_error( $result ) ) {
-                $filename = basename( get_attached_file( $attachment->ID ) ?? "ID {$attachment->ID}" );
+                $attached_file = get_attached_file( $attachment->ID );
+                $filename      = $attached_file ? basename( $attached_file ) : "ID {$attachment->ID}";
                 $errors[] = [
                     'id'      => $attachment->ID,
                     'message' => "[{$filename}] " . $result->get_error_message(),
@@ -82,7 +83,8 @@ class WP_S3_Media_Offloader {
     public function offload_attachment( int $attachment_id ) {
         $file = get_attached_file( $attachment_id );
         if ( ! $file || ! file_exists( $file ) ) {
-            return new WP_Error( 'file_missing', "Local file not found: {$file}" );
+            $label = $file ? $file : "attachment ID {$attachment_id}";
+            return new WP_Error( 'file_missing', "Local file not found: {$label}" );
         }
 
         $metadata = wp_get_attachment_metadata( $attachment_id );

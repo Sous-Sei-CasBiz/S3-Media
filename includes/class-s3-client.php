@@ -50,7 +50,7 @@ class WP_S3_Media_Client {
             // If keys are empty the SDK will still try the default chain
             // (env vars, instance profile) — a safe fallback.
         }
-        // 'iam_role' → omit credentials entirely; SDK uses instance profile / ECS task role
+        // str_starts_with() is available from PHP 8.0+ — safe to use here
 
         return new S3Client( $config );
     }

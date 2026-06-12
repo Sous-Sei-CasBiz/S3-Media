@@ -3,7 +3,7 @@
         'name' => 'your-vendor/wp-s3-media',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5c485389a70b6ca765099e83f17457a73104089d',
+        'reference' => '1f0f4e37bfa8c6e4b0386f7a9a16538da869b67c',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -166,7 +166,7 @@
         'your-vendor/wp-s3-media' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5c485389a70b6ca765099e83f17457a73104089d',
+            'reference' => '1f0f4e37bfa8c6e4b0386f7a9a16538da869b67c',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

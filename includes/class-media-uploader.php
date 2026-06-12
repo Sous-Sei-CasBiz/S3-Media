@@ -37,9 +37,7 @@ class WP_S3_Media_Uploader {
             return $metadata;
         }
 
-        $upload_dir = wp_upload_dir();
-        $base_dir   = trailingslashit( $upload_dir['basedir'] );
-        $sub_dir    = trailingslashit( dirname( $file ) );
+        $sub_dir = trailingslashit( dirname( $file ) );
 
         // Collect all file paths to upload: original + generated sizes
         $files_to_upload = [ $file ];

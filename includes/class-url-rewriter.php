@@ -143,7 +143,7 @@ class WP_S3_Media_URL_Rewriter {
             if ( empty( $source['url'] ) ) {
                 continue;
             }
-            $filename = basename( parse_url( $source['url'], PHP_URL_PATH ) );
+            $filename = basename( (string) parse_url( $source['url'], PHP_URL_PATH ) );
             if ( in_array( $filename, $s3_files, true ) ) {
                 $source['url'] = $this->swap_base( $source['url'] );
             }
