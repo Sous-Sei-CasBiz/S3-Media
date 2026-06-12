@@ -1,0 +1,12 @@
+{
+    "name": "your-vendor/wp-s3-media",
+    "description": "WordPress plugin to offload and serve media via Amazon S3",
+    "type": "wordpress-plugin",
+    "require": {
+        "aws/aws-sdk-php": "^3.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
