@@ -3,6 +3,7 @@
     "description": "WordPress plugin to offload and serve media via Amazon S3",
     "type": "wordpress-plugin",
     "require": {
+        "php": ">=8.1",
         "aws/aws-sdk-php": "^3.0"
     },
     "config": {

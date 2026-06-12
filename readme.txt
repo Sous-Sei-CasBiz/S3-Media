@@ -3,7 +3,7 @@ Contributors: yourwordpressusername
 Tags: s3, amazon, media, uploads, offload, cdn, cloudfront
 Requires at least: 6.0
 Tested up to: 6.5
-Requires PHP: 8.0
+Requires PHP: 8.1
 Stable tag: 1.0.0
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
