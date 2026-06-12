@@ -7,9 +7,27 @@
  * Author:      Your Name
  * License:     GPL-2.0+
  * Text Domain: wp-s3-media
+ * Requires PHP: 8.0
+ * Requires at least: 6.0
  */
 
 defined( 'ABSPATH' ) || exit;
+
+// Runtime PHP version check — guards against WordPress versions older than 5.2
+// that don't read the "Requires PHP" header above.
+if ( version_compare( PHP_VERSION, '8.0', '<' ) ) {
+    add_action( 'admin_notices', function () {
+        echo '<div class="notice notice-error"><p>';
+        echo '<strong>WP S3 Media</strong> requires PHP 8.0 or higher. ';
+        echo 'You are running PHP ' . esc_html( PHP_VERSION ) . '. Please upgrade PHP to use this plugin.';
+        echo '</p></div>';
+    } );
+    // Deactivate the plugin gracefully
+    add_action( 'admin_init', function () {
+        deactivate_plugins( plugin_basename( __FILE__ ) );
+    } );
+    return;
+}
 
 define( 'WP_S3_MEDIA_VERSION', '1.0.0' );
 define( 'WP_S3_MEDIA_DIR',     plugin_dir_path( __FILE__ ) );
